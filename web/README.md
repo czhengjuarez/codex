@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Codex Frontend
 
-## Getting Started
+This is the Next.js web application that renders your organization's Codex. It dynamically builds a static documentation site based on the Markdown files stored in the root directories of this repository.
 
-First, run the development server:
+## 🚀 Getting Started Locally
+
+To test the Codex on your machine:
 
 ```bash
+# Install dependencies
+npm install
+
+# Start the dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the website.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ✍️ How to Contribute & Edit Content
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**Do NOT edit `app/page.tsx` or other React components to add content!** 
 
-## Learn More
+This application aggregates content automatically from Markdown files. To add a new rule or update an existing standard:
 
-To learn more about Next.js, take a look at the following resources:
+1. Look in the root of the repository for the target category:
+   - `/domains/` (Engineering domains like AI, API Design, Rust, etc.)
+   - `/governance/` (Process documents like Review Policy or RFC Process)
+   - `/product/` (Product shipping guidelines)
+   - `/design/` (Design standards)
+2. Edit an existing `.md` file or create a new one. (You can use `rfc-template.md` as a starting point!)
+3. The content is automatically picked up! Next.js will auto-update as you edit the text in the `.md` files.
+4. *Note: If you create a brand-new file, you may need to restart the `npm run dev` server so the generation script (`npm run generate`) can discover the new file and add it to the sidebar.*
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ☁️ Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project is configured to statically export and deploy automatically to Cloudflare Workers using the `/out` directory.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+To deploy manually from your machine:
+```bash
+npm run build
+npx wrangler deploy
+```
