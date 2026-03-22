@@ -103,9 +103,22 @@ npm install
 npm run dev
 ```
 
-Opens at `http://localhost:3000`. The app reads content from the markdown files at runtime — edit a file and refresh to see the change.
+Opens at `http://localhost:3000`. The app reads content from the markdown files at runtime.
 
-### 5. Integrate with AI tools
+**Important for Contributors**: Do **NOT** edit `web/app/page.tsx` or other React code to add content. To contribute, simply create or edit `.md` files in the `domains/`, `product/`, `design/`, or `governance/` folders. The Next.js server will automatically render them. If you add a completely new file, you may need to restart `npm run dev`.
+
+### 5. Deployment
+
+This project is configured to statically export and deploy automatically to Cloudflare Workers manually or via CI.
+
+To deploy manually via Wrangler:
+```bash
+cd web
+npm run build
+npx wrangler deploy
+```
+
+### 6. Integrate with AI tools
 
 See [`skills/opencode-skill.md`](skills/opencode-skill.md) for setup instructions covering:
 - [OpenCode](https://opencode.ai) — Claude-based CLI assistant
@@ -114,7 +127,7 @@ See [`skills/opencode-skill.md`](skills/opencode-skill.md) for setup instruction
 
 Load Engineering, Product, and Design rules together for cross-discipline teams.
 
-### 6. Set up governance
+### 7. Set up governance
 
 Use [`governance/rfc-process.md`](governance/rfc-process.md) and [`governance/review-policy.md`](governance/review-policy.md) to establish how your team proposes, reviews, and approves changes.
 
