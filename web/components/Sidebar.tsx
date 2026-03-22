@@ -60,7 +60,6 @@ export default function Sidebar({ domains, governance }: Props) {
 
   const inEngineering =
     pathname === "/engineering" ||
-    pathname === "/" ||
     pathname.startsWith("/domains");
 
   const inProduct = pathname === "/product" || pathname.startsWith("/product/");
@@ -71,7 +70,7 @@ export default function Sidebar({ domains, governance }: Props) {
     return (
       <nav className="p-3 py-4 space-y-5">
         <div>
-          <Link href="/select" className="flex items-center gap-1.5 px-2 py-1 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">
+          <Link href="/" className="flex items-center gap-1.5 px-2 py-1 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">
             <ArrowLeft size={13} />
             Back to Codex
           </Link>
@@ -110,7 +109,7 @@ export default function Sidebar({ domains, governance }: Props) {
     return (
       <nav className="p-3 py-4 space-y-5">
         <div>
-          <Link href="/select" className="flex items-center gap-1.5 px-2 py-1 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">
+          <Link href="/" className="flex items-center gap-1.5 px-2 py-1 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">
             <ArrowLeft size={13} />
             Back to Codex
           </Link>
@@ -155,7 +154,7 @@ export default function Sidebar({ domains, governance }: Props) {
           </p>
           <ul className="space-y-0.5">
             <li>
-              <Link href="/select" className={navItemClass(pathname === "/select")}>
+              <Link href="/" className={navItemClass(pathname === "/")}>
                 <Files size={13} weight="duotone" className="shrink-0 opacity-70" />
                 What is a Codex?
               </Link>
@@ -243,7 +242,7 @@ export default function Sidebar({ domains, governance }: Props) {
       {/* Back button */}
       <div>
         <Link
-          href="/select"
+          href="/"
           className="flex items-center gap-1.5 px-2 py-1 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
         >
           <ArrowLeft size={13} />
@@ -258,7 +257,7 @@ export default function Sidebar({ domains, governance }: Props) {
         </p>
         <ul className="space-y-0.5">
           <li>
-            <Link href="/engineering" className={navItemClass(pathname === "/engineering" || pathname === "/")}>
+            <Link href="/engineering" className={navItemClass(pathname === "/engineering")}>
               <Files size={13} weight="duotone" className="shrink-0 opacity-70" />
               Overview
             </Link>

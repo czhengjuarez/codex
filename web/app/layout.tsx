@@ -26,7 +26,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           {/* ── Top bar ── */}
           <header className="sticky top-0 z-50 h-14 flex items-center border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-[#0d1117] px-5 gap-3 shrink-0">
             <Link
-              href="/select"
+              href="/"
               className="flex items-center gap-2 font-semibold text-gray-900 dark:text-gray-100 hover:text-brand-600 dark:text-brand-dark dark:hover:text-brand-600 dark:text-brand-dark transition-colors"
             >
               <BookBookmark size={20} weight="duotone" className="text-brand-600 dark:text-brand-dark" />
